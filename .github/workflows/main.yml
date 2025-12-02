@@ -30,8 +30,9 @@ jobs:
             variables.auto.tfvars.tmpl => variables.auto.tfvars
             backend.tf
           variables: '[${{ toJSON(vars) }},${{ toJSON(secrets) }}]'
-          transforms-prefix: '${'
-          transforms-suffix: '}'
+          token-pattern: custom
+          token-prefix: '${'
+          token-suffix: '}'
           log-level: debug
           no-telemetry: true
           root: terraform
