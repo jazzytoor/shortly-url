@@ -1,9 +1,9 @@
 terraform {
   backend "s3" {
-    bucket         = ""
-    dynamodb_table = ""
-    encrypt        = true
-    key            = ""
-    region         = "${AWS_REGION}"
+    bucket       = "jt-yeet"
+    encrypt      = true
+    key          = "terraform/${SERVICE}/.terraform/terraform.tfstate"
+    region       = "${AWS_REGION}"
+    use_lockfile = true
   }
 }
