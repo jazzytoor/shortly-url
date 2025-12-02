@@ -24,18 +24,6 @@ jobs:
         with:
           terraform_version: 1.14.0
 
-      - name: Terraform Init
-        run: terraform init
-        working-directory: terraform
-
-      - name: Terraform Format
-        run: terraform fmt -check
-        working-directory: terraform
-
-      - name: Terraform Validate
-        run: terraform validate
-        working-directory: terraform
-
       - uses: qetza/replacetokens-action@v1
         with:
           sources: |
@@ -47,6 +35,18 @@ jobs:
           log-level: debug
           no-telemetry: true
           root: terraform
+
+      - name: Terraform Init
+        run: terraform init
+        working-directory: terraform
+
+      - name: Terraform Format
+        run: terraform fmt -check
+        working-directory: terraform
+
+      - name: Terraform Validate
+        run: terraform validate
+        working-directory: terraform
 
       - name: Terraform Plan
         run: terraform plan
